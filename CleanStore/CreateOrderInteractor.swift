@@ -18,7 +18,7 @@ protocol CreateOrderInteractorOutput{
 
 class CreateOrderInteractor: CreateOrderInteractorInput{
     var output: CreateOrderInteractorOutput!
-//    var worker: CreateOrderWorker
+    var worker: CreateOrderWorker!
     
     //MARK: Business Logic
     

@@ -16,6 +16,8 @@
 		42A5EB6323E878FA00527730 /* CleanStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A5EB6223E878FA00527730 /* CleanStoreTests.swift */; };
 		42A5EB6E23E878FB00527730 /* CleanStoreUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A5EB6D23E878FB00527730 /* CleanStoreUITests.swift */; };
 		42A5EB7C23E87B2800527730 /* CreateOrderInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A5EB7B23E87B2800527730 /* CreateOrderInteractor.swift */; };
+		42A5EB7E23E87C0900527730 /* CreateOrderWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A5EB7D23E87C0900527730 /* CreateOrderWorker.swift */; };
+		42A5EB8023E87C4F00527730 /* CreateOrderPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A5EB7F23E87C4F00527730 /* CreateOrderPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		42A5EB6D23E878FB00527730 /* CleanStoreUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanStoreUITests.swift; sourceTree = "<group>"; };
 		42A5EB6F23E878FB00527730 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		42A5EB7B23E87B2800527730 /* CreateOrderInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateOrderInteractor.swift; sourceTree = "<group>"; };
+		42A5EB7D23E87C0900527730 /* CreateOrderWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateOrderWorker.swift; sourceTree = "<group>"; };
+		42A5EB7F23E87C4F00527730 /* CreateOrderPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateOrderPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +108,8 @@
 				42A5EB4823E878F700527730 /* AppDelegate.swift */,
 				42A5EB4C23E878F700527730 /* CreateOrderViewController.swift */,
 				42A5EB7B23E87B2800527730 /* CreateOrderInteractor.swift */,
+				42A5EB7D23E87C0900527730 /* CreateOrderWorker.swift */,
+				42A5EB7F23E87C4F00527730 /* CreateOrderPresenter.swift */,
 				42A5EB4E23E878F700527730 /* Main.storyboard */,
 				42A5EB5423E878FA00527730 /* Assets.xcassets */,
 				42A5EB5623E878FA00527730 /* LaunchScreen.storyboard */,
@@ -264,8 +270,10 @@
 			files = (
 				42A5EB4D23E878F700527730 /* CreateOrderViewController.swift in Sources */,
 				42A5EB7C23E87B2800527730 /* CreateOrderInteractor.swift in Sources */,
+				42A5EB7E23E87C0900527730 /* CreateOrderWorker.swift in Sources */,
 				42A5EB4923E878F700527730 /* AppDelegate.swift in Sources */,
 				42A5EB5323E878F700527730 /* CleanStore.xcdatamodeld in Sources */,
+				42A5EB8023E87C4F00527730 /* CreateOrderPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
