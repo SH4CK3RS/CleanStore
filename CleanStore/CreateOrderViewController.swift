@@ -17,7 +17,7 @@ protocol CreateOrderViewControllerOutput{
 
 class CreateOrderViewController: UITableViewController, CreateOrderViewControllerInput  {
     var output: CreateOrderViewControllerOutput!
-//    var router: CreateOrderRouter
+    var router: CreateOrderRouter!
     
     //MARK: Object LifeCycle
     
