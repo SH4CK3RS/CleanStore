@@ -15,7 +15,44 @@ protocol CreateOrderViewControllerOutput{
     func doSomething(_ request: CreateOrderRequest)
 }
 
-class CreateOrderViewController: UITableViewController, CreateOrderViewControllerInput  {
+class CreateOrderViewController: UITableViewController, CreateOrderViewControllerInput, UITextFieldDelegate  {
+    //MARK:  Text FIelsd
+    @IBOutlet var textFields: [UITextField]!
+    
+    //MARK: Shipping method
+    @IBOutlet weak var shippingMethodTextFIeld: UITextField!
+    @IBOutlet var shippingMethodPicker: UIPickerView!
+    
+    //MARK: Expiration date
+    @IBOutlet weak var expirationDateTextField: UITextField!
+    @IBOutlet var expirationDatePicker: UIDatePicker!
+    
+    @IBAction func expirationDatePickerValueChanged(sender: UIDatePicker){
+        
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        if let index = textFields.firstIndex(of: textField){
+            if index < textFields.count - 1 {
+                let nextTextFIeld = textFields[index + 1]
+                nextTextFIeld.becomeFirstResponder()
+            }
+        }
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath){
+            for textField in textFields{
+                if textField.isDescendant(of: cell){
+                    textField.becomeFirstResponder()
+                }
+            }
+        }
+    }
+    
+    
     var output: CreateOrderViewControllerOutput!
     var router: CreateOrderRouter!
     
