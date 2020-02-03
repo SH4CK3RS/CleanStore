@@ -9,6 +9,7 @@
 import UIKit
 
 protocol CreateOrderInteractorInput{
+    var shippingMethods: [String] { get }
     func doSomething(_ request: CreateOrderRequest)
 }
 
@@ -19,7 +20,11 @@ protocol CreateOrderInteractorOutput{
 class CreateOrderInteractor: CreateOrderInteractorInput{
     var output: CreateOrderInteractorOutput!
     var worker: CreateOrderWorker!
-    
+    var shippingMethods = [
+        "Standard Shipping",
+        "Two-Day Shipping",
+        "One-Day Shipping"
+    ]
     //MARK: Business Logic
     
     func doSomething(_ request: CreateOrderRequest){

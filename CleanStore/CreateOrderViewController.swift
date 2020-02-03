@@ -9,19 +9,36 @@
 import UIKit
 
 protocol CreateOrderViewControllerInput{
+    
     func displaySomething(_ viewModel: CreateOrderViewModel)
+    
 }
 protocol CreateOrderViewControllerOutput{
+    var shippingMethods: [String] { get }
     func doSomething(_ request: CreateOrderRequest)
 }
 
-class CreateOrderViewController: UITableViewController, CreateOrderViewControllerInput, UITextFieldDelegate  {
+class CreateOrderViewController: UITableViewController, CreateOrderViewControllerInput, UITextFieldDelegate,UIPickerViewDataSource,UIPickerViewDelegate  {
     //MARK:  Text FIelsd
     @IBOutlet var textFields: [UITextField]!
     
     //MARK: Shipping method
     @IBOutlet weak var shippingMethodTextFIeld: UITextField!
     @IBOutlet var shippingMethodPicker: UIPickerView!
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return output.shippingMethods.count
+    }
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return output.shippingMethods[row]
+    }
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        shippingMethodTextFIeld.text = output.shippingMethods[row]
+    }
+    
     
     //MARK: Expiration date
     @IBOutlet weak var expirationDateTextField: UITextField!
@@ -68,8 +85,11 @@ class CreateOrderViewController: UITableViewController, CreateOrderViewControlle
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         doSomethingOnLoad()
+        configurePickers()
     }
-
+    func configurePickers(){
+        shippingMethodTextFIeld.inputView = shippingMethodPicker
+    }
     //MARK: Event Handling
     func doSomethingOnLoad(){
         // NOTE: Interactor에 특정 작업 요청
