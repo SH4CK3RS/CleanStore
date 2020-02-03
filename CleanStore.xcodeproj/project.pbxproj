@@ -18,6 +18,7 @@
 		42A5EB7C23E87B2800527730 /* CreateOrderInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A5EB7B23E87B2800527730 /* CreateOrderInteractor.swift */; };
 		42A5EB7E23E87C0900527730 /* CreateOrderWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A5EB7D23E87C0900527730 /* CreateOrderWorker.swift */; };
 		42A5EB8023E87C4F00527730 /* CreateOrderPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A5EB7F23E87C4F00527730 /* CreateOrderPresenter.swift */; };
+		42A5EB8223E87D9900527730 /* CreateOrderRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A5EB8123E87D9900527730 /* CreateOrderRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		42A5EB7B23E87B2800527730 /* CreateOrderInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateOrderInteractor.swift; sourceTree = "<group>"; };
 		42A5EB7D23E87C0900527730 /* CreateOrderWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateOrderWorker.swift; sourceTree = "<group>"; };
 		42A5EB7F23E87C4F00527730 /* CreateOrderPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateOrderPresenter.swift; sourceTree = "<group>"; };
+		42A5EB8123E87D9900527730 /* CreateOrderRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateOrderRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 				42A5EB7B23E87B2800527730 /* CreateOrderInteractor.swift */,
 				42A5EB7D23E87C0900527730 /* CreateOrderWorker.swift */,
 				42A5EB7F23E87C4F00527730 /* CreateOrderPresenter.swift */,
+				42A5EB8123E87D9900527730 /* CreateOrderRouter.swift */,
 				42A5EB4E23E878F700527730 /* Main.storyboard */,
 				42A5EB5423E878FA00527730 /* Assets.xcassets */,
 				42A5EB5623E878FA00527730 /* LaunchScreen.storyboard */,
@@ -274,6 +277,7 @@
 				42A5EB4923E878F700527730 /* AppDelegate.swift in Sources */,
 				42A5EB5323E878F700527730 /* CleanStore.xcdatamodeld in Sources */,
 				42A5EB8023E87C4F00527730 /* CreateOrderPresenter.swift in Sources */,
+				42A5EB8223E87D9900527730 /* CreateOrderRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
