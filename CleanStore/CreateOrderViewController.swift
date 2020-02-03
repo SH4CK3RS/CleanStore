@@ -9,10 +9,10 @@
 import UIKit
 
 protocol CreateOrderViewControllerInput{
-//    func displaySomething(viewModel: CreateOrderViewModel)
+    func displaySomething(_ viewModel: CreateOrderViewModel)
 }
 protocol CreateOrderViewControllerOutput{
-//    func doSomething(request: CreateOrderRequest)
+    func doSomething(_ request: CreateOrderRequest)
 }
 
 class CreateOrderViewController: UITableViewController, CreateOrderViewControllerInput  {
@@ -37,15 +37,15 @@ class CreateOrderViewController: UITableViewController, CreateOrderViewControlle
     func doSomethingOnLoad(){
         // NOTE: Interactor에 특정 작업 요청
         
-//        let request = CreateOrderRequest()
-//        output.doSomething(request)
+        let request = CreateOrderRequest()
+        output.doSomething(request)
     }
     
     //MARK: Display Logic
-//    func displaySomething(viewModel: CreateOrderViewModel){
-//         NOTE: Presenter로부터 받은 result를 통해 화면 구성
-//
+    func displaySomething(_ viewModel: CreateOrderViewModel){
+        // NOTE: Presenter로부터 받은 result를 통해 화면 구성
+
 //        nameTextField.text = viewModel.name
-//    }
+    }
 }
 

@@ -9,11 +9,11 @@
 import UIKit
 
 protocol CreateOrderInteractorInput{
-//    func doSomething(request: CreateOrderRequest)
+    func doSomething(_ request: CreateOrderRequest)
 }
 
 protocol CreateOrderInteractorOutput{
-//    func presentSomething(response: CreateOrderResponse)
+    func presentSomething(_ response: CreateOrderResponse)
 }
 
 class CreateOrderInteractor: CreateOrderInteractorInput{
@@ -22,13 +22,13 @@ class CreateOrderInteractor: CreateOrderInteractorInput{
     
     //MARK: Business Logic
     
-//    func doSomething(request: CreateOrderRequest){
-//        worker = CreateOrderWorker()
-//        worker.doSomeWork()
-//
-//        let response = CreateOrderResponse()
-//        output.presentSomething(response)
-//    }
+    func doSomething(_ request: CreateOrderRequest){
+        worker = CreateOrderWorker()
+        worker.doSomeWork()
+
+        let response = CreateOrderResponse()
+        output.presentSomething(response)
+    }
     
     
 }
