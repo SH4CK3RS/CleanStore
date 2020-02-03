@@ -21,9 +21,9 @@ class CreateOrderViewController: UITableViewController, CreateOrderViewControlle
     
     //MARK: Object LifeCycle
     
-    override class func awakeFromNib() {
+    override func awakeFromNib() {
         super.awakeFromNib()
-//        CreateOrderConfigurator.shared.configure(self)
+        CreateOrderConfigurator.shared.configure(self)
     }
     
     //MARK: View LifeCycle

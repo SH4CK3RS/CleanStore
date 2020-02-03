@@ -28,7 +28,7 @@ class CreateOrderConfigurator{
     static var shared: CreateOrderConfigurator = CreateOrderConfigurator()
     
     // MARK: Configuration
-    func configure(viewController: CreateOrderViewController){
+    func configure(_ viewController: CreateOrderViewController){
         let router = CreateOrderRouter()
         router.viewController = viewController
         
