@@ -48,6 +48,30 @@ class CreateOrderViewController: UITableViewController, CreateOrderViewControlle
         output.formatExpirationDate(request)
     }
     
+    //MARK: Contact Info
+    @IBOutlet weak var firstNameTextField: UITextField!
+    @IBOutlet weak var lastNameTextField: UITextField!
+    @IBOutlet weak var phoneTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
+    
+    //MARK: Payment Info
+    @IBOutlet weak var billingAddressStreet1TextField: UITextField!
+    @IBOutlet weak var billingAddressStreet2TextField: UITextField!
+    @IBOutlet weak var billingAddressCityTextField: UITextField!
+    @IBOutlet weak var billingAddressStateTextField: UITextField!
+    @IBOutlet weak var billingAddressZIPTextFIeld: UITextField!
+    
+    @IBOutlet weak var creditCardNumberTextField: UITextField!
+    @IBOutlet weak var ccvTextField: UITextField!
+    
+    @IBOutlet weak var shipmentAddressStreet1TextField: UITextField!
+    @IBOutlet weak var shipmentAddressStreet2TextField: UITextField!
+    @IBOutlet weak var shipmentAddressCityTextField: UITextField!
+    @IBOutlet weak var shipmentAddressState1TextField: UITextField!
+    @IBOutlet weak var shipmentAddressZIPTextField: UITextField!
+    
+    
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         if let index = textFields.firstIndex(of: textField){
@@ -95,7 +119,9 @@ class CreateOrderViewController: UITableViewController, CreateOrderViewControlle
     //MARK: Display Logic
     func displayExpirationDate(_ viewModel: CreateOrder.FormatExpirationDate.ViewModel){
         let date = viewModel.date
-        expirationDateTextField.text = viewModel.date
+        expirationDateTextField.text = date
     }
+    
+    
 }
 

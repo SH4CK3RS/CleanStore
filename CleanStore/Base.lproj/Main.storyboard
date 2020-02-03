@@ -707,8 +707,24 @@
                     </navigationItem>
                     <size key="freeformSize" width="414" height="1300"/>
                     <connections>
+                        <outlet property="billingAddressCityTextField" destination="Oem-QX-9Wb" id="ZGG-yk-eqN"/>
+                        <outlet property="billingAddressStateTextField" destination="BaP-oO-eak" id="hJA-h0-Fqt"/>
+                        <outlet property="billingAddressStreet1TextField" destination="YCQ-hC-iFP" id="qR4-Vc-bPQ"/>
+                        <outlet property="billingAddressStreet2TextField" destination="w2P-Q7-QVW" id="Tzd-OZ-PDq"/>
+                        <outlet property="billingAddressZIPTextFIeld" destination="CE4-ix-7Qn" id="4Hq-8i-etr"/>
+                        <outlet property="ccvTextField" destination="g6j-wc-XS0" id="IKQ-0w-0ul"/>
+                        <outlet property="creditCardNumberTextField" destination="LlL-Nr-Ob8" id="0ak-Ft-mnm"/>
+                        <outlet property="emailTextField" destination="SYj-2U-jub" id="x0K-0H-1yA"/>
                         <outlet property="expirationDatePicker" destination="uJZ-aS-5SV" id="dFQ-sG-Ba5"/>
                         <outlet property="expirationDateTextField" destination="bI6-vd-mlm" id="SdG-DA-toH"/>
+                        <outlet property="firstNameTextField" destination="ra0-0H-OUV" id="zkA-co-bhD"/>
+                        <outlet property="lastNameTextField" destination="mfv-R9-JGh" id="keA-bF-WF7"/>
+                        <outlet property="phoneTextField" destination="9Ci-a6-w3Z" id="PFz-Rd-vJv"/>
+                        <outlet property="shipmentAddressCityTextField" destination="Ylh-QU-q6L" id="oTO-T9-WR9"/>
+                        <outlet property="shipmentAddressState1TextField" destination="kNq-2s-t8Z" id="M5k-6B-JqV"/>
+                        <outlet property="shipmentAddressStreet1TextField" destination="MFR-Vo-0JZ" id="og1-dN-vbt"/>
+                        <outlet property="shipmentAddressStreet2TextField" destination="3Bt-ds-w8V" id="c0R-jf-VW3"/>
+                        <outlet property="shipmentAddressZIPTextField" destination="JRC-1C-SBF" id="Ude-bg-I6n"/>
                         <outlet property="shippingMethodPicker" destination="1gv-sh-1Ts" id="vyd-w2-sMR"/>
                         <outlet property="shippingMethodTextFIeld" destination="mRJ-oG-CVp" id="N9G-De-MfT"/>
                         <outletCollection property="textFields" destination="ra0-0H-OUV" collectionClass="NSMutableArray" id="tZ2-4f-hLM"/>
