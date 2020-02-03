@@ -9,13 +9,11 @@
 import UIKit
 
 protocol CreateOrderViewControllerInput{
-    
-    func displaySomething(_ viewModel: CreateOrderViewModel)
-    
+    func displayExpirationDate(_ viewModel: CreateOrder.FormatExpirationDate.ViewModel)
 }
 protocol CreateOrderViewControllerOutput{
     var shippingMethods: [String] { get }
-    func doSomething(_ request: CreateOrderRequest)
+    func formatExpirationDate(_ request: CreateOrder.FormatExpirationDate.Request)
 }
 
 class CreateOrderViewController: UITableViewController, CreateOrderViewControllerInput, UITextFieldDelegate,UIPickerViewDataSource,UIPickerViewDelegate  {
@@ -45,7 +43,9 @@ class CreateOrderViewController: UITableViewController, CreateOrderViewControlle
     @IBOutlet var expirationDatePicker: UIDatePicker!
     
     @IBAction func expirationDatePickerValueChanged(sender: UIDatePicker){
-        
+        let date = expirationDatePicker.date
+        let request = CreateOrder.FormatExpirationDate.Request(date: date)
+        output.formatExpirationDate(request)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -84,25 +84,18 @@ class CreateOrderViewController: UITableViewController, CreateOrderViewControlle
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        doSomethingOnLoad()
         configurePickers()
     }
     func configurePickers(){
         shippingMethodTextFIeld.inputView = shippingMethodPicker
+        expirationDateTextField.inputView = expirationDatePicker
     }
     //MARK: Event Handling
-    func doSomethingOnLoad(){
-        // NOTE: Interactor에 특정 작업 요청
-        
-        let request = CreateOrderRequest()
-        output.doSomething(request)
-    }
     
     //MARK: Display Logic
-    func displaySomething(_ viewModel: CreateOrderViewModel){
-        // NOTE: Presenter로부터 받은 result를 통해 화면 구성
-
-//        nameTextField.text = viewModel.name
+    func displayExpirationDate(_ viewModel: CreateOrder.FormatExpirationDate.ViewModel){
+        let date = viewModel.date
+        expirationDateTextField.text = viewModel.date
     }
 }
 

@@ -9,22 +9,27 @@
 import UIKit
 
 protocol CreateOrderPresenterInput{
-    func presentSomething(_ response: CreateOrderResponse)
+    func presentExpirationDate(_ response: CreateOrder.FormatExpirationDate.Response)
 }
 
 protocol CreateOrderPresenterOutput: class {
-    func displaySomething(_ viewModel: CreateOrderViewModel)
+    func displayExpirationDate(_ viewModel: CreateOrder.FormatExpirationDate.ViewModel)
 }
 
 class CreateOrderPresenter: CreateOrderPresenterInput{
     weak var output: CreateOrderPresenterOutput!
+    let dateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .none
+        return dateFormatter
+    }()
     
     //MARK: Presentation Logic
-    
-    func presentSomething(_ response: CreateOrderResponse){
-        //NOTE: Interactor로부터 받은 response를 가공하여 result 객체 생성 후 ViewController로 보내 화면을 그리도록 함
-        let viewModel = CreateOrderViewModel()
-        output.displaySomething(viewModel)
+    func presentExpirationDate(_ response: CreateOrder.FormatExpirationDate.Response){
+        let date = dateFormatter.string(from: response.date)
+        let viewModel = CreateOrder.FormatExpirationDate.ViewModel(date: date)
+        output.displayExpirationDate(viewModel)
     }
     
 }

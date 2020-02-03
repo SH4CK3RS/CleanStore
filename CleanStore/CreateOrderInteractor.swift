@@ -10,11 +10,11 @@ import UIKit
 
 protocol CreateOrderInteractorInput{
     var shippingMethods: [String] { get }
-    func doSomething(_ request: CreateOrderRequest)
+    func formatExpirationDate(_ request: CreateOrder.FormatExpirationDate.Request)
 }
 
 protocol CreateOrderInteractorOutput{
-    func presentSomething(_ response: CreateOrderResponse)
+    func presentExpirationDate(_ response: CreateOrder.FormatExpirationDate.Response)
 }
 
 class CreateOrderInteractor: CreateOrderInteractorInput{
@@ -26,13 +26,9 @@ class CreateOrderInteractor: CreateOrderInteractorInput{
         "One-Day Shipping"
     ]
     //MARK: Business Logic
-    
-    func doSomething(_ request: CreateOrderRequest){
-        worker = CreateOrderWorker()
-        worker.doSomeWork()
-
-        let response = CreateOrderResponse()
-        output.presentSomething(response)
+    func formatExpirationDate(_ request: CreateOrder.FormatExpirationDate.Request){
+        let response = CreateOrder.FormatExpirationDate.Response(date: request.date)
+        output.presentExpirationDate(response)
     }
     
     

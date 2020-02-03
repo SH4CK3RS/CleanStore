@@ -8,12 +8,16 @@
 
 import UIKit
 
-struct CreateOrderRequest{
-    
-}
-struct CreateOrderResponse{
-    
-}
-struct CreateOrderViewModel{
-    
+enum CreateOrder{
+    enum FormatExpirationDate {
+        struct Request {
+            var date: Date
+        }
+        struct Response{
+            var date: Date
+        }
+        struct ViewModel{
+            var date: String
+        }
+    }
 }
