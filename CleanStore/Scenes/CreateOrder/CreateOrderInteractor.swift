@@ -24,9 +24,9 @@ protocol CreateOrderDataSource{
     var orderToEdit: Order? { get set }
 }
 
-class CreateOrderInteractor: CreateOrderInteractorInput{
+class CreateOrderInteractor: CreateOrderInteractorInput, CreateOrderDataSource{
     var output: CreateOrderInteractorOutput!
-    var ordersWorker: OrdersWorker!
+    var ordersWorker = OrdersWorker(orderStore: OrdersMemStore())
     var orderToEdit: Order?
     
     var shippingMethods = [
@@ -34,13 +34,13 @@ class CreateOrderInteractor: CreateOrderInteractorInput{
         "Two-Day Shipping",
         "One-Day Shipping"
     ]
-    //MARK: Business Logic
+    //MARK: - Expiration Date
     func formatExpirationDate(_ request: CreateOrder.FormatExpirationDate.Request){
         let response = CreateOrder.FormatExpirationDate.Response(date: request.date)
         output.presentExpirationDate(response)
     }
     
-    //MARK: Create Order
+    //MARK: - Create Order
     func createOrder(_ request: CreateOrder.CreateOrder.Request){
         let orderToCreate = buildOrderFromOrderFormFrelds(request.orderFormFields)
         ordersWorker.createOrder(orderToCreate: orderToCreate) { order in
@@ -62,6 +62,6 @@ class CreateOrderInteractor: CreateOrderInteractorInput{
         
         let shipmentMethod = ShipmentMethod(speed: ShipmentMethod.ShipmentSpeed(rawValue: orderFormFields.shipmentMethodSpeed)!)
         
-        return Order(firstName: orderFormFields.firstName, lastName: orderFormFields.lastName, phone: orderFormFields.phone, email: orderFormFields.email, billingAddress: billingAddress, paymentMethod: paymentMethod, shipmentAddress: shipmentAddress, shipmentMehtod: shipmentMethod, id: orderFormFields.id, date: orderFormFields.date, total: orderFormFields.total)
+        return Order(firstName: orderFormFields.firstName, lastName: orderFormFields.lastName, phone: orderFormFields.phone, email: orderFormFields.email, billingAddress: billingAddress, paymentMethod: paymentMethod, shipmentAddress: shipmentAddress, shipmentMethod: shipmentMethod, id: orderFormFields.id, date: orderFormFields.date, total: orderFormFields.total)
     }
 }
