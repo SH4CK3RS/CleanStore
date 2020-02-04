@@ -8,18 +8,13 @@
 
 import UIKit
 
-protocol CreateOrderPresenterInput{
+protocol CreateOrderPresentationLogic{
     func presentExpirationDate(_ response: CreateOrder.FormatExpirationDate.Response)
     func presentCreatedOrder(_ response: CreateOrder.CreateOrder.Response)
 }
 
-protocol CreateOrderPresenterOutput: class {
-    func displayExpirationDate(_ viewModel: CreateOrder.FormatExpirationDate.ViewModel)
-    func displayCreatedOrder(_ viewModel: CreateOrder.CreateOrder.ViewModel)
-}
-
-class CreateOrderPresenter: CreateOrderPresenterInput{
-    weak var output: CreateOrderPresenterOutput!
+class CreateOrderPresenter: CreateOrderPresentationLogic{
+    weak var viewController: CreateOrderDisplayLogic?
     let dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .short
@@ -31,11 +26,11 @@ class CreateOrderPresenter: CreateOrderPresenterInput{
     func presentExpirationDate(_ response: CreateOrder.FormatExpirationDate.Response){
         let date = dateFormatter.string(from: response.date)
         let viewModel = CreateOrder.FormatExpirationDate.ViewModel(date: date)
-        output.displayExpirationDate(viewModel)
+        viewController?.displayExpirationDate(viewModel)
     }
     //MARK: - CreateOrder
     func presentCreatedOrder(_ response: CreateOrder.CreateOrder.Response){
         let viewModel = CreateOrder.CreateOrder.ViewModel(order: response.order)
-        output.displayCreatedOrder(viewModel)
+        viewController?.displayCreatedOrder(viewModel)
     }
 }

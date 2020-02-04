@@ -8,24 +8,19 @@
 
 import UIKit
 
-protocol CreateOrderInteractorInput{
+protocol CreateOrderBusinessLogic{
     var shippingMethods: [String] { get }
     var orderToEdit: Order? { get }
     func formatExpirationDate(_ request: CreateOrder.FormatExpirationDate.Request)
     func createOrder(_ request: CreateOrder.CreateOrder.Request)
 }
 
-protocol CreateOrderInteractorOutput{
-    func presentExpirationDate(_ response: CreateOrder.FormatExpirationDate.Response)
-    func presentCreatedOrder(_ response: CreateOrder.CreateOrder.Response)
-}
-
-protocol CreateOrderDataSource{
+protocol CreateOrderDataStore{
     var orderToEdit: Order? { get set }
 }
 
-class CreateOrderInteractor: CreateOrderInteractorInput, CreateOrderDataSource{
-    var output: CreateOrderInteractorOutput!
+class CreateOrderInteractor: CreateOrderBusinessLogic, CreateOrderDataStore{
+    var presenter: CreateOrderPresentationLogic!
     var ordersWorker = OrdersWorker(orderStore: OrdersMemStore())
     var orderToEdit: Order?
     
@@ -37,7 +32,7 @@ class CreateOrderInteractor: CreateOrderInteractorInput, CreateOrderDataSource{
     //MARK: - Expiration Date
     func formatExpirationDate(_ request: CreateOrder.FormatExpirationDate.Request){
         let response = CreateOrder.FormatExpirationDate.Response(date: request.date)
-        output.presentExpirationDate(response)
+        presenter.presentExpirationDate(response)
     }
     
     //MARK: - Create Order
@@ -46,7 +41,7 @@ class CreateOrderInteractor: CreateOrderInteractorInput, CreateOrderDataSource{
         ordersWorker.createOrder(orderToCreate: orderToCreate) { order in
             self.orderToEdit = order
             let response = CreateOrder.CreateOrder.Response(order: order)
-            self.output.presentCreatedOrder(response)
+            self.presenter.presentCreatedOrder(response)
         }
     }
     

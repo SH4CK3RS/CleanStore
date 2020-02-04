@@ -8,19 +8,39 @@
 
 import UIKit
 
-protocol CreateOrderViewControllerInput{
+protocol CreateOrderDisplayLogic: class{
     func displayExpirationDate(_ viewModel: CreateOrder.FormatExpirationDate.ViewModel)
     func displayCreatedOrder(_ viewModel: CreateOrder.CreateOrder.ViewModel)
 }
-protocol CreateOrderViewControllerOutput{
+class CreateOrderViewController: UITableViewController, CreateOrderDisplayLogic, UITextFieldDelegate,UIPickerViewDataSource,UIPickerViewDelegate  {
+    var interactor: CreateOrderBusinessLogic?
+    var router: (NSObjectProtocol & CreateOrderRoutingLogic & CreateOrderDataPassing)?
     
-    var shippingMethods: [String] { get }
-    var orderToEdit: Order? { get }
-    func formatExpirationDate(_ request: CreateOrder.FormatExpirationDate.Request)
-    func createOrder(_ request: CreateOrder.CreateOrder.Request)
-}
-
-class CreateOrderViewController: UITableViewController, CreateOrderViewControllerInput, UITextFieldDelegate,UIPickerViewDataSource,UIPickerViewDelegate  {
+    //MARK: Object Lifecycle
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        setup()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setup()
+    }
+    
+    func setup(){
+        let viewController = self
+        let interactor = CreateOrderInteractor()
+        let presenter = CreateOrderPresenter()
+        let router = CreateOrderRouter()
+        viewController.interactor = interactor
+        viewController.router = router
+        interactor.presenter = presenter
+        presenter.viewController = viewController
+        router.viewController = viewController
+        router.dataStore = interactor
+    }
+    
     //MARK:  Text FIelsd
     @IBOutlet var textFields: [UITextField]!
     
@@ -32,13 +52,13 @@ class CreateOrderViewController: UITableViewController, CreateOrderViewControlle
         return 1
     }
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return output.shippingMethods.count
+        return interactor?.shippingMethods.count ?? 0
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return output.shippingMethods[row]
+        return interactor?.shippingMethods[row]
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        shippingMethodTextFIeld.text = output.shippingMethods[row]
+        shippingMethodTextFIeld.text = interactor?.shippingMethods[row]
     }
     
     
@@ -49,7 +69,7 @@ class CreateOrderViewController: UITableViewController, CreateOrderViewControlle
     @IBAction func expirationDatePickerValueChanged(sender: UIDatePicker){
         let date = expirationDatePicker.date
         let request = CreateOrder.FormatExpirationDate.Request(date: date)
-        output.formatExpirationDate(request)
+        interactor?.formatExpirationDate(request)
     }
     
     //MARK: Contact Info
@@ -111,7 +131,7 @@ class CreateOrderViewController: UITableViewController, CreateOrderViewControlle
         
         let request = CreateOrder.CreateOrder.Request(orderFormFields: CreateOrder.OrderFormFields(firstName: firstName, lastName: lastName, phone: phone, email: email, billingAddressStreet1: billingAddressStreet1, billingAddressStreet2: billingAddressStreet2, billingAddressCity: billingAddressCity, billingAddressState: billingAddressState, billingAddressZIP: billingAddressZIP, paymentMethodCreditCardNumber: paymentMethodCreditCardNumber, paymentMethodCVV: paymentMethodCCV, paymentMethodExpirationDate: paymentMethodExpirationDate, paymentMethodExpirationDateString: paymentMethodExpirationDateString, shipmentAddressStreet1: shipmentAddressStreet1, shipmentAddressStreet2: shipmentAddressStreet2, shipmentAddressCity: shipmentAddressCity, shipmentAddressState: shipmentAddressState, shipmentAddressZIP: shipmentAddressZIP, shipmentMethodSpeed: shipmentMetnodSpeed, shipmentMethodSpeedString: shipmentMethodSpeedString, id: id, date: date, total: total))
         
-        output.createOrder(request)
+        interactor?.createOrder(request)
         
     }
     
@@ -136,17 +156,6 @@ class CreateOrderViewController: UITableViewController, CreateOrderViewControlle
         }
     }
     
-    
-    var output: CreateOrderViewControllerOutput!
-    var router: CreateOrderRouter!
-    
-    //MARK: Object LifeCycle
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        CreateOrderConfigurator.shared.configure(self)
-    }
-    
     //MARK: View LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -167,7 +176,7 @@ class CreateOrderViewController: UITableViewController, CreateOrderViewControlle
     
     func displayCreatedOrder(_ viewModel: CreateOrder.CreateOrder.ViewModel){
         if viewModel.order != nil{
-//            router?.routeToListOrders(segue: nil)
+            router?.routeToListOrders(segue: nil)
         }else{
             showOrderFailureAlert(title: "Failed to create order", message: "Please correct your order and submit again.")
         }

@@ -8,29 +8,46 @@
 
 import UIKit
 
+@objc protocol CreateOrderRoutingLogic{
+    func routeToListOrders(segue: UIStoryboardSegue?)
+//    func routeToShowOrder(seuge: UIStoryboardSegue?)
+}
+
+protocol CreateOrderDataPassing {
+    var dataStore: CreateOrderDataStore? { get }
+}
+
 protocol CreateOrderRouterInput{
     func navigateToSomewhere()
 }
 
-class CreateOrderRouter: CreateOrderRouterInput{
-    weak var viewController: CreateOrderViewController!
+class CreateOrderRouter: NSObject, CreateOrderRoutingLogic, CreateOrderDataPassing{
+    weak var viewController: CreateOrderViewController?
+    var dataStore: CreateOrderDataStore?
     
-    //MARK: Navigation
-    func navigateToSomewhere(){
-        //NOTE: Router가 다른 씬을 어떤 방식으로 호출할지를 정의하는 메소드
-    }
+    //MARK: Routing
     
-    //MARK: Communication
-    func passDataToNextScene(segue: UIStoryboardSegue){
-        // NOTE: router가 Communication가능한 씬을 정의
-        if segue.identifier == "ShowSomewhereScene"{
-            passDataToSomewhere(segue)
+    func routeToListOrders(segue: UIStoryboardSegue?) {
+        if let segue = segue{
+            let destinationVC = segue.destination as! ListOrdersViewController
+            var destinationDS = destinationVC.router!.dataStore!
+            passDataToListOrders(source: dataStore!, destination: &destinationDS)
+        }else{
+            let index = viewController!.navigationController!.viewControllers.count - 2
+            let destinationVC = viewController?.navigationController?.viewControllers[index] as! ListOrdersViewController
+            var destinationDS = destinationVC.router!.dataStore!
+            passDataToListOrders(source: dataStore!, destination: &destinationDS)
+            navigationToListOrders(source: viewController!, destination: destinationVC)
         }
     }
     
-    func passDataToSomewhere(_ segue: UIStoryboardSegue){
-        //NOTE: segue.identifier가 "ShowSomewhereScene"인 Scene에 대해 전달할 데이터를 이곳에서 처리
-        
+    //MARK: Navigation
+    
+    func navigationToListOrders(source: CreateOrderViewController, destination: ListOrdersViewController){
+        source.navigationController?.popViewController(animated: true)
     }
     
+    func passDataToListOrders(source: CreateOrderDataStore, destination: inout ListOrdersDataStore){
+        
+    }
 }
