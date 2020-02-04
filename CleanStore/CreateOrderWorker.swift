@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CreateOrderWorker{
+class OrdersWorker{
     
     //MARK: Business Logic
     func doSomeWork(){

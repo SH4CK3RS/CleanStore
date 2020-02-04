@@ -703,7 +703,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="List Orders" id="Wm3-QI-kbQ">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="HO5-zv-h8a"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="HO5-zv-h8a">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="P6N-lE-8Lp" id="iId-eU-sT9"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <size key="freeformSize" width="414" height="1300"/>
                     <connections>

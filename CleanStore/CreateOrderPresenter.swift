@@ -10,10 +10,12 @@ import UIKit
 
 protocol CreateOrderPresenterInput{
     func presentExpirationDate(_ response: CreateOrder.FormatExpirationDate.Response)
+    func presentCreatedOrder(_ response: CreateOrder.CreateOrder.Response)
 }
 
 protocol CreateOrderPresenterOutput: class {
     func displayExpirationDate(_ viewModel: CreateOrder.FormatExpirationDate.ViewModel)
+    func displayCreatedOrder(_ viewModel: CreateOrder.CreateOrder.ViewModel)
 }
 
 class CreateOrderPresenter: CreateOrderPresenterInput{
@@ -25,11 +27,15 @@ class CreateOrderPresenter: CreateOrderPresenterInput{
         return dateFormatter
     }()
     
-    //MARK: Presentation Logic
+    //MARK: - Expiration Date
     func presentExpirationDate(_ response: CreateOrder.FormatExpirationDate.Response){
         let date = dateFormatter.string(from: response.date)
         let viewModel = CreateOrder.FormatExpirationDate.ViewModel(date: date)
         output.displayExpirationDate(viewModel)
     }
-    
+    //MARK: - CreateOrder
+    func presentCreatedOrder(_ response: CreateOrder.CreateOrder.Response){
+        let viewModel = CreateOrder.CreateOrder.ViewModel(order: response.order)
+        output.displayCreatedOrder(viewModel)
+    }
 }
