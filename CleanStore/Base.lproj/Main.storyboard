@@ -805,7 +805,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="9ea-Gk-TOf" kind="show" id="hrf-qM-Kpy"/>
+                                    <segue destination="9ea-Gk-TOf" kind="show" identifier="ShowOrder" id="hrf-qM-Kpy"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -918,7 +918,11 @@
                         <viewLayoutGuide key="safeArea" id="B0c-pY-q40"/>
                     </view>
                     <navigationItem key="navigationItem" title="Show Order" id="psu-b4-q61">
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="YMS-G8-TiH"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="YMS-G8-TiH">
+                            <connections>
+                                <segue destination="P6N-lE-8Lp" kind="show" identifier="EditOrder" id="EB9-5z-ftD"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="orderDateLabel" destination="mBi-HE-mKB" id="5Y3-oS-nxw"/>
@@ -951,4 +955,7 @@
             <point key="canvasLocation" x="-217" y="-106"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="EB9-5z-ftD"/>
+    </inferredMetricsTieBreakers>
 </document>

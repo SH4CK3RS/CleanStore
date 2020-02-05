@@ -8,11 +8,13 @@
 
 import UIKit
 
-protocol ShowOrderDisplayLogic{
+protocol ShowOrderDisplayLogic: class{
     
 }
 
 class ShowOrderViewController: UIViewController, ShowOrderDisplayLogic{
+    var interactor: ShowOrderBusinessLogic?
+    var router: (NSObjectProtocol & ShowOrderRoutingLogic & ShowOrderDataPassing)?
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         setup()
@@ -23,7 +25,16 @@ class ShowOrderViewController: UIViewController, ShowOrderDisplayLogic{
     }
     
     private func setup(){
-        
+        let viewController = self
+        let interactor = ShowOrderInteractor()
+        let presenter = ShowOrderPresenter()
+        let router = ShowOrderRouter()
+        viewController.interactor = interactor
+        viewController.router = router
+        interactor.presenter = presenter
+        presenter.viewController = viewController
+        router.viewController = viewController
+        router.dataStore = interactor
     }
     
     //MARK: - Get Order

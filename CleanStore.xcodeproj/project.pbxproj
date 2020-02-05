@@ -15,6 +15,10 @@
 		4251F92023E98FEE00E77555 /* CreateOrderWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4251F91F23E98FEE00E77555 /* CreateOrderWorker.swift */; };
 		4251F92223E9901A00E77555 /* ListOrdersWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4251F92123E9901A00E77555 /* ListOrdersWorker.swift */; };
 		4251F92523EAC97A00E77555 /* ShowOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4251F92423EAC97A00E77555 /* ShowOrderViewController.swift */; };
+		4251F92723EACF7A00E77555 /* ShowOrderInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4251F92623EACF7A00E77555 /* ShowOrderInteractor.swift */; };
+		4251F92923EACF9C00E77555 /* ShowOrderPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4251F92823EACF9C00E77555 /* ShowOrderPresenter.swift */; };
+		4251F92B23EACFF400E77555 /* ShowOrderWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4251F92A23EACFF400E77555 /* ShowOrderWorker.swift */; };
+		4251F92D23EACFFD00E77555 /* ShowOrderRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4251F92C23EACFFD00E77555 /* ShowOrderRouter.swift */; };
 		42A5EB4923E878F700527730 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A5EB4823E878F700527730 /* AppDelegate.swift */; };
 		42A5EB4D23E878F700527730 /* CreateOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A5EB4C23E878F700527730 /* CreateOrderViewController.swift */; };
 		42A5EB5023E878F700527730 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42A5EB4E23E878F700527730 /* Main.storyboard */; };
@@ -59,6 +63,10 @@
 		4251F91F23E98FEE00E77555 /* CreateOrderWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateOrderWorker.swift; sourceTree = "<group>"; };
 		4251F92123E9901A00E77555 /* ListOrdersWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOrdersWorker.swift; sourceTree = "<group>"; };
 		4251F92423EAC97A00E77555 /* ShowOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowOrderViewController.swift; sourceTree = "<group>"; };
+		4251F92623EACF7A00E77555 /* ShowOrderInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowOrderInteractor.swift; sourceTree = "<group>"; };
+		4251F92823EACF9C00E77555 /* ShowOrderPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowOrderPresenter.swift; sourceTree = "<group>"; };
+		4251F92A23EACFF400E77555 /* ShowOrderWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowOrderWorker.swift; sourceTree = "<group>"; };
+		4251F92C23EACFFD00E77555 /* ShowOrderRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowOrderRouter.swift; sourceTree = "<group>"; };
 		42A5EB4523E878F700527730 /* CleanStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CleanStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42A5EB4823E878F700527730 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		42A5EB4C23E878F700527730 /* CreateOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateOrderViewController.swift; sourceTree = "<group>"; };
@@ -125,6 +133,10 @@
 			isa = PBXGroup;
 			children = (
 				4251F92423EAC97A00E77555 /* ShowOrderViewController.swift */,
+				4251F92623EACF7A00E77555 /* ShowOrderInteractor.swift */,
+				4251F92823EACF9C00E77555 /* ShowOrderPresenter.swift */,
+				4251F92A23EACFF400E77555 /* ShowOrderWorker.swift */,
+				4251F92C23EACFFD00E77555 /* ShowOrderRouter.swift */,
 			);
 			path = ShowOrder;
 			sourceTree = "<group>";
@@ -363,6 +375,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4251F92723EACF7A00E77555 /* ShowOrderInteractor.swift in Sources */,
 				4251F91823E98CB600E77555 /* ListOrdersModels.swift in Sources */,
 				42A5EB9323E958C900527730 /* ManagedOrder+CoreDataProperties.swift in Sources */,
 				4251F91A23E98D5400E77555 /* ListOrdersInteractor.swift in Sources */,
@@ -373,8 +386,11 @@
 				42A5EB8623E8844400527730 /* CreateOrderModel.swift in Sources */,
 				42A5EB8923E8B07100527730 /* Order.swift in Sources */,
 				4251F91C23E98D6200E77555 /* ListOrdersPresenter.swift in Sources */,
+				4251F92B23EACFF400E77555 /* ShowOrderWorker.swift in Sources */,
 				42A5EB7C23E87B2800527730 /* CreateOrderInteractor.swift in Sources */,
 				42A5EB9223E958C900527730 /* ManagedOrder+CoreDataClass.swift in Sources */,
+				4251F92D23EACFFD00E77555 /* ShowOrderRouter.swift in Sources */,
+				4251F92923EACF9C00E77555 /* ShowOrderPresenter.swift in Sources */,
 				4251F91623E98BE100E77555 /* ListOrdersViewController.swift in Sources */,
 				42A5EB4923E878F700527730 /* AppDelegate.swift in Sources */,
 				4251F91E23E98D7B00E77555 /* ListOrdersRouter.swift in Sources */,
