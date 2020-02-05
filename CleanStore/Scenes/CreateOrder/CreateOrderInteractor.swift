@@ -13,6 +13,7 @@ protocol CreateOrderBusinessLogic{
     var orderToEdit: Order? { get }
     func formatExpirationDate(_ request: CreateOrder.FormatExpirationDate.Request)
     func createOrder(_ request: CreateOrder.CreateOrder.Request)
+    func updateOrder(_ request: CreateOrder.UpdateOrder.Request)
 }
 
 protocol CreateOrderDataStore{
@@ -45,6 +46,15 @@ class CreateOrderInteractor: CreateOrderBusinessLogic, CreateOrderDataStore{
         }
     }
     
+    //MARK: Update Order
+    func updateOrder(_ request: CreateOrder.UpdateOrder.Request) {
+        let orderToUpdate = buildOrderFromOrderFormFrelds(request.orderFormFields)
+        ordersWorker.updateOrder(orderToUpdate: orderToUpdate) { order in
+            self.orderToEdit = order
+            let response = CreateOrder.UpdateOrder.Response(order: order)
+            self.presenter.presentUpdatedOrder(response)
+        }
+    }
     
     //MARK: Helper Function
     

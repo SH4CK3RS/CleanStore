@@ -11,6 +11,7 @@ import UIKit
 protocol CreateOrderPresentationLogic{
     func presentExpirationDate(_ response: CreateOrder.FormatExpirationDate.Response)
     func presentCreatedOrder(_ response: CreateOrder.CreateOrder.Response)
+    func presentUpdatedOrder(_ response: CreateOrder.UpdateOrder.Response)
 }
 
 class CreateOrderPresenter: CreateOrderPresentationLogic{
@@ -32,5 +33,10 @@ class CreateOrderPresenter: CreateOrderPresentationLogic{
     func presentCreatedOrder(_ response: CreateOrder.CreateOrder.Response){
         let viewModel = CreateOrder.CreateOrder.ViewModel(order: response.order)
         viewController?.displayCreatedOrder(viewModel)
+    }
+    //MARK: - Update Order
+    func presentUpdatedOrder(_ response: CreateOrder.UpdateOrder.Response) {
+        let viewModel = CreateOrder.UpdateOrder.ViewModel(order: order)
+        
     }
 }
