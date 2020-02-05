@@ -66,6 +66,18 @@ enum CreateOrder{
             var order: Order?
         }
     }
+    enum EditOrder{
+        struct Request {
+            
+        }
+        struct Response {
+            var order: Order
+        }
+        struct ViewModel {
+            var orderFormFields: OrderFormFields
+        }
+    }
+    
     enum UpdateOrder{
         struct Request{
             var orderFormFields: OrderFormFields

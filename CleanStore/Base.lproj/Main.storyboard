@@ -717,7 +717,7 @@
                         <outlet property="billingAddressStateTextField" destination="BaP-oO-eak" id="hJA-h0-Fqt"/>
                         <outlet property="billingAddressStreet1TextField" destination="YCQ-hC-iFP" id="qR4-Vc-bPQ"/>
                         <outlet property="billingAddressStreet2TextField" destination="w2P-Q7-QVW" id="Tzd-OZ-PDq"/>
-                        <outlet property="billingAddressZIPTextFIeld" destination="CE4-ix-7Qn" id="4Hq-8i-etr"/>
+                        <outlet property="billingAddressZIPTextField" destination="CE4-ix-7Qn" id="4Hq-8i-etr"/>
                         <outlet property="ccvTextField" destination="g6j-wc-XS0" id="IKQ-0w-0ul"/>
                         <outlet property="creditCardNumberTextField" destination="LlL-Nr-Ob8" id="0ak-Ft-mnm"/>
                         <outlet property="emailTextField" destination="SYj-2U-jub" id="x0K-0H-1yA"/>
@@ -727,7 +727,7 @@
                         <outlet property="lastNameTextField" destination="mfv-R9-JGh" id="keA-bF-WF7"/>
                         <outlet property="phoneTextField" destination="9Ci-a6-w3Z" id="PFz-Rd-vJv"/>
                         <outlet property="shipmentAddressCityTextField" destination="Ylh-QU-q6L" id="oTO-T9-WR9"/>
-                        <outlet property="shipmentAddressState1TextField" destination="kNq-2s-t8Z" id="M5k-6B-JqV"/>
+                        <outlet property="shipmentAddressStateTextField" destination="kNq-2s-t8Z" id="M5k-6B-JqV"/>
                         <outlet property="shipmentAddressStreet1TextField" destination="MFR-Vo-0JZ" id="og1-dN-vbt"/>
                         <outlet property="shipmentAddressStreet2TextField" destination="3Bt-ds-w8V" id="c0R-jf-VW3"/>
                         <outlet property="shipmentAddressZIPTextField" destination="JRC-1C-SBF" id="Ude-bg-I6n"/>
