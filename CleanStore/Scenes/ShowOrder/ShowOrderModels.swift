@@ -10,7 +10,7 @@ import UIKit
 
 enum ShowOrder{
     // MARK: Use cases
-    enum GotOrder{
+    enum GetOrder{
         struct Request {
             
         }

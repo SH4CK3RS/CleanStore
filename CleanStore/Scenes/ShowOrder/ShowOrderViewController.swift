@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ShowOrderDisplayLogic: class{
-    
+    func displayOrder(_ viewModel: ShowOrder.GetOrder.ViewModel)
 }
 
 class ShowOrderViewController: UIViewController, ShowOrderDisplayLogic{
@@ -37,6 +37,11 @@ class ShowOrderViewController: UIViewController, ShowOrderDisplayLogic{
         router.dataStore = interactor
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        getOrder()
+    }
+    
     //MARK: - Get Order
     
     @IBOutlet weak var orderIDLabel: UILabel!
@@ -45,5 +50,18 @@ class ShowOrderViewController: UIViewController, ShowOrderDisplayLogic{
     @IBOutlet weak var orderNameLabel: UILabel!
     @IBOutlet weak var orderTotalLabel: UILabel!
     
+    func getOrder(){
+        let request = ShowOrder.GetOrder.Request()
+        interactor?.getOrder(request)
+    }
+    
+    func displayOrder(_ viewModel: ShowOrder.GetOrder.ViewModel) {
+        let displayedOrder = viewModel.displayedOrder
+        orderIDLabel.text = displayedOrder.id
+        orderDateLabel.text = displayedOrder.date
+        orderEmailLabel.text = displayedOrder.email
+        orderNameLabel.text = displayedOrder.name
+        orderTotalLabel.text = displayedOrder.total
+    }
     
 }

@@ -781,7 +781,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="O5o-gM-nf5" detailTextLabel="9Pz-lS-urH" style="IBUITableViewCellStyleValue1" id="XKe-eh-Ifz">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="OrderTableViewCell" textLabel="O5o-gM-nf5" detailTextLabel="9Pz-lS-urH" style="IBUITableViewCellStyleValue1" id="XKe-eh-Ifz">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XKe-eh-Ifz" id="ARh-Bu-mYd">
@@ -805,7 +805,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="9ea-Gk-TOf" kind="show" identifier="ShowOrder" id="hrf-qM-Kpy"/>
+                                    <segue destination="9ea-Gk-TOf" kind="show" identifier="ShowOrder" id="97s-eV-FQR"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -829,7 +829,7 @@
         <!--Show Order-->
         <scene sceneID="2TS-T2-hJn">
             <objects>
-                <viewController id="9ea-Gk-TOf" customClass="ShowOrderViewController" customModule="CleanStore" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ShowOrderViewController" id="9ea-Gk-TOf" customClass="ShowOrderViewController" customModule="CleanStore" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uTe-vK-x7Y">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
