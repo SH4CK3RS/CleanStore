@@ -177,6 +177,7 @@ class CreateOrderViewController: UITableViewController, CreateOrderDisplayLogic,
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         configurePickers()
+        showOrderToEdit()
     }
     func configurePickers(){
         shippingMethodTextFIeld.inputView = shippingMethodPicker
@@ -195,6 +196,7 @@ class CreateOrderViewController: UITableViewController, CreateOrderDisplayLogic,
     //MARK: - Edit Order
     func showOrderToEdit(){
         let request = CreateOrder.EditOrder.Request()
+        interactor?.showOrderToEdit(request)
     }
     
     func displayOrderToEdit(_ viewModel: CreateOrder.EditOrder.ViewModel) {

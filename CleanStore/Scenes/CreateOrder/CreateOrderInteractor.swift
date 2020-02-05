@@ -51,7 +51,7 @@ class CreateOrderInteractor: CreateOrderBusinessLogic, CreateOrderDataStore{
     func showOrderToEdit(_ request: CreateOrder.EditOrder.Request) {
         if let orderToEdit = orderToEdit{
             let response = CreateOrder.EditOrder.Response(order: orderToEdit)
-            
+            presenter.presentOrderToEdit(response)
         }
     }
     
