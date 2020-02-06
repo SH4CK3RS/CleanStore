@@ -12,7 +12,7 @@ protocol CreateOrderDisplayLogic: class{
     func displayExpirationDate(_ viewModel: CreateOrder.FormatExpirationDate.ViewModel)
     func displayCreatedOrder(_ viewModel: CreateOrder.CreateOrder.ViewModel)
     func displayOrderToEdit(_ viewModel: CreateOrder.EditOrder.ViewModel)
-    func displayupdatedOrder(_ viewModel: CreateOrder.UpdateOrder.ViewModel)
+    func displayUpdatedOrder(_ viewModel: CreateOrder.UpdateOrder.ViewModel)
 }
 class CreateOrderViewController: UITableViewController, CreateOrderDisplayLogic, UITextFieldDelegate,UIPickerViewDataSource,UIPickerViewDelegate  {
     var interactor: CreateOrderBusinessLogic?
@@ -143,11 +143,13 @@ class CreateOrderViewController: UITableViewController, CreateOrderDisplayLogic,
             let request = CreateOrder.UpdateOrder.Request(orderFormFields: CreateOrder.OrderFormFields(firstName: firstName, lastName: lastName, phone: phone, email: email, billingAddressStreet1: billingAddressStreet1, billingAddressStreet2: billingAddressStreet2, billingAddressCity: billingAddressCity, billingAddressState: billingAddressState, billingAddressZIP: billingAddressZIP, paymentMethodCreditCardNumber: paymentMethodCreditCardNumber, paymentMethodCVV: paymentMethodCCV, paymentMethodExpirationDate: paymentMethodExpirationDate, paymentMethodExpirationDateString: paymentMethodExpirationDateString, shipmentAddressStreet1: shipmentAddressStreet1, shipmentAddressStreet2: shipmentAddressStreet2, shipmentAddressCity: shipmentAddressCity, shipmentAddressState: shipmentAddressState, shipmentAddressZIP: shipmentAddressZIP, shipmentMethodSpeed: shipmentMetnodSpeed, shipmentMethodSpeedString: shipmentMethodSpeedString, id: id, date: date, total: total))
             interactor?.updateOrder(request)
             
+        }else{
+            let request = CreateOrder.CreateOrder.Request(orderFormFields: CreateOrder.OrderFormFields(firstName: firstName, lastName: lastName, phone: phone, email: email, billingAddressStreet1: billingAddressStreet1, billingAddressStreet2: billingAddressStreet2, billingAddressCity: billingAddressCity, billingAddressState: billingAddressState, billingAddressZIP: billingAddressZIP, paymentMethodCreditCardNumber: paymentMethodCreditCardNumber, paymentMethodCVV: paymentMethodCCV, paymentMethodExpirationDate: paymentMethodExpirationDate, paymentMethodExpirationDateString: paymentMethodExpirationDateString, shipmentAddressStreet1: shipmentAddressStreet1, shipmentAddressStreet2: shipmentAddressStreet2, shipmentAddressCity: shipmentAddressCity, shipmentAddressState: shipmentAddressState, shipmentAddressZIP: shipmentAddressZIP, shipmentMethodSpeed: shipmentMetnodSpeed, shipmentMethodSpeedString: shipmentMethodSpeedString, id: id, date: date, total: total))
+            
+            interactor?.createOrder(request)
         }
         
-        let request = CreateOrder.CreateOrder.Request(orderFormFields: CreateOrder.OrderFormFields(firstName: firstName, lastName: lastName, phone: phone, email: email, billingAddressStreet1: billingAddressStreet1, billingAddressStreet2: billingAddressStreet2, billingAddressCity: billingAddressCity, billingAddressState: billingAddressState, billingAddressZIP: billingAddressZIP, paymentMethodCreditCardNumber: paymentMethodCreditCardNumber, paymentMethodCVV: paymentMethodCCV, paymentMethodExpirationDate: paymentMethodExpirationDate, paymentMethodExpirationDateString: paymentMethodExpirationDateString, shipmentAddressStreet1: shipmentAddressStreet1, shipmentAddressStreet2: shipmentAddressStreet2, shipmentAddressCity: shipmentAddressCity, shipmentAddressState: shipmentAddressState, shipmentAddressZIP: shipmentAddressZIP, shipmentMethodSpeed: shipmentMetnodSpeed, shipmentMethodSpeedString: shipmentMethodSpeedString, id: id, date: date, total: total))
         
-        interactor?.createOrder(request)
         
     }
     
@@ -229,9 +231,11 @@ class CreateOrderViewController: UITableViewController, CreateOrderDisplayLogic,
     }
     
     //MARK: - Update Order
-    func displayupdatedOrder(_ viewModel: CreateOrder.UpdateOrder.ViewModel) {
+    func displayUpdatedOrder(_ viewModel: CreateOrder.UpdateOrder.ViewModel) {
         if viewModel.order != nil{
-//            if router.
+            router?.routeToShowOrder(segue: nil)
+        }else{
+            showOrderFailureAlert(title: "Failed to update order", message: "Please correct your order and submit again")
         }
     }
     

@@ -71,6 +71,6 @@ class CreateOrderPresenter: CreateOrderPresentationLogic{
     //MARK: - Update Order
     func presentUpdatedOrder(_ response: CreateOrder.UpdateOrder.Response) {
         let viewModel = CreateOrder.UpdateOrder.ViewModel(order: response.order)
-        
+        viewController?.displayUpdatedOrder(viewModel)
     }
 }

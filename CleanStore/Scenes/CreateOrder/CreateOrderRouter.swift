@@ -10,7 +10,7 @@ import UIKit
 
 @objc protocol CreateOrderRoutingLogic{
     func routeToListOrders(segue: UIStoryboardSegue?)
-//    func routeToShowOrder(seuge: UIStoryboardSegue?)
+    func routeToShowOrder(segue: UIStoryboardSegue?)
 }
 
 protocol CreateOrderDataPassing {
@@ -40,14 +40,32 @@ class CreateOrderRouter: NSObject, CreateOrderRoutingLogic, CreateOrderDataPassi
             navigationToListOrders(source: viewController!, destination: destinationVC)
         }
     }
+    func routeToShowOrder(segue: UIStoryboardSegue?) {
+        if let segue = segue{
+            let destinationVC = segue.destination as! ShowOrderViewController
+            var destinationDS = destinationVC.router!.dataStore!
+            passDataToShowOrder(source: dataStore!, destination: &destinationDS)
+        }else{
+            let index = viewController!.navigationController!.viewControllers.count - 2
+            let destinationVC = viewController?.navigationController?.viewControllers[index]  as! ShowOrderViewController
+            var destinationDS = destinationVC.router!.dataStore!
+            passDataToShowOrder(source: dataStore!, destination: &destinationDS)
+            navigateToShowOrder(source: viewController!, destination: destinationVC)
+        }
+    }
     
     //MARK: Navigation
     
     func navigationToListOrders(source: CreateOrderViewController, destination: ListOrdersViewController){
         source.navigationController?.popViewController(animated: true)
     }
-    
+    func navigateToShowOrder(source: CreateOrderViewController, destination: ShowOrderViewController){
+        source.navigationController?.popViewController(animated: true)
+    }
     func passDataToListOrders(source: CreateOrderDataStore, destination: inout ListOrdersDataStore){
         
+    }
+    func passDataToShowOrder(source: CreateOrderDataStore, destination: inout ShowOrderDataStore){
+        destination.order = source.orderToEdit
     }
 }
