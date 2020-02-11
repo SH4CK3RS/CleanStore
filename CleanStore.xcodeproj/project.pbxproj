@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		420A389F23F2408500E516A0 /* OrdersCoreDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420A389E23F2408500E516A0 /* OrdersCoreDataStore.swift */; };
 		4251F91623E98BE100E77555 /* ListOrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4251F91523E98BE100E77555 /* ListOrdersViewController.swift */; };
 		4251F91823E98CB600E77555 /* ListOrdersModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4251F91723E98CB600E77555 /* ListOrdersModels.swift */; };
 		4251F91A23E98D5400E77555 /* ListOrdersInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4251F91923E98D5400E77555 /* ListOrdersInteractor.swift */; };
@@ -56,6 +57,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		420A389E23F2408500E516A0 /* OrdersCoreDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersCoreDataStore.swift; sourceTree = "<group>"; };
 		4251F91523E98BE100E77555 /* ListOrdersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOrdersViewController.swift; sourceTree = "<group>"; };
 		4251F91723E98CB600E77555 /* ListOrdersModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOrdersModels.swift; sourceTree = "<group>"; };
 		4251F91923E98D5400E77555 /* ListOrdersInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOrdersInteractor.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				42A5EB9523E9610000527730 /* OrdersMemStore.swift */,
+				420A389E23F2408500E516A0 /* OrdersCoreDataStore.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -397,6 +400,7 @@
 				4251F91623E98BE100E77555 /* ListOrdersViewController.swift in Sources */,
 				4251F92F23EAD88400E77555 /* ShowOrderModels.swift in Sources */,
 				42A5EB4923E878F700527730 /* AppDelegate.swift in Sources */,
+				420A389F23F2408500E516A0 /* OrdersCoreDataStore.swift in Sources */,
 				4251F91E23E98D7B00E77555 /* ListOrdersRouter.swift in Sources */,
 				4251F92523EAC97A00E77555 /* ShowOrderViewController.swift in Sources */,
 				42A5EB8023E87C4F00527730 /* CreateOrderPresenter.swift in Sources */,
