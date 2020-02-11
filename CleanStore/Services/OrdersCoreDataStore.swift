@@ -269,7 +269,7 @@ class OrdersCoreDataStore: OrdersStoreProtocol, OrderStoreUtilityProtocol{
     func createOrder(orderToCreate: Order, completionHandler: @escaping (() throws -> Order?) -> Void) {
         privateManagedObjectContext.perform {
             do{
-                let managedOrder = NSEntityDescription.insertNewObject(forEntityName: "ManagedOrdr", into: self.privateManagedObjectContext) as! ManagedOrder
+                let managedOrder = NSEntityDescription.insertNewObject(forEntityName: "ManagedOrder", into: self.privateManagedObjectContext) as! ManagedOrder
                 var order = orderToCreate
                 self.generateOrderID(order: &order)
                 self.calculateOrderTotal(order: &order)

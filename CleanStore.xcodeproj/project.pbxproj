@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		420A389F23F2408500E516A0 /* OrdersCoreDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420A389E23F2408500E516A0 /* OrdersCoreDataStore.swift */; };
+		420A38A523F2E94300E516A0 /* CleanStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 420A38A323F2E94300E516A0 /* CleanStore.xcdatamodeld */; };
 		4251F91623E98BE100E77555 /* ListOrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4251F91523E98BE100E77555 /* ListOrdersViewController.swift */; };
 		4251F91823E98CB600E77555 /* ListOrdersModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4251F91723E98CB600E77555 /* ListOrdersModels.swift */; };
 		4251F91A23E98D5400E77555 /* ListOrdersInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4251F91923E98D5400E77555 /* ListOrdersInteractor.swift */; };
@@ -58,6 +59,7 @@
 
 /* Begin PBXFileReference section */
 		420A389E23F2408500E516A0 /* OrdersCoreDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersCoreDataStore.swift; sourceTree = "<group>"; };
+		420A38A423F2E94300E516A0 /* CleanStore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CleanStore.xcdatamodel; sourceTree = "<group>"; };
 		4251F91523E98BE100E77555 /* ListOrdersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOrdersViewController.swift; sourceTree = "<group>"; };
 		4251F91723E98CB600E77555 /* ListOrdersModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOrdersModels.swift; sourceTree = "<group>"; };
 		4251F91923E98D5400E77555 /* ListOrdersInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOrdersInteractor.swift; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 		42A5EB8723E8B06700527730 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				420A38A323F2E94300E516A0 /* CleanStore.xcdatamodeld */,
 				42A5EB9023E958C900527730 /* ManagedOrder+CoreDataClass.swift */,
 				42A5EB9123E958C900527730 /* ManagedOrder+CoreDataProperties.swift */,
 				42A5EB8823E8B07000527730 /* Order.swift */,
@@ -388,6 +391,7 @@
 				4251F92223E9901A00E77555 /* ListOrdersWorker.swift in Sources */,
 				42A5EB4D23E878F700527730 /* CreateOrderViewController.swift in Sources */,
 				42A5EB9623E9610000527730 /* OrdersMemStore.swift in Sources */,
+				420A38A523F2E94300E516A0 /* CleanStore.xcdatamodeld in Sources */,
 				4251F92023E98FEE00E77555 /* CreateOrderWorker.swift in Sources */,
 				42A5EB8623E8844400527730 /* CreateOrderModels.swift in Sources */,
 				42A5EB8923E8B07100527730 /* Order.swift in Sources */,
@@ -734,6 +738,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		420A38A323F2E94300E516A0 /* CleanStore.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				420A38A423F2E94300E516A0 /* CleanStore.xcdatamodel */,
+			);
+			currentVersion = 420A38A423F2E94300E516A0 /* CleanStore.xcdatamodel */;
+			name = CleanStore.xcdatamodeld;
+			path = ../CleanStore.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 42A5EB3D23E878F700527730 /* Project object */;
 }
