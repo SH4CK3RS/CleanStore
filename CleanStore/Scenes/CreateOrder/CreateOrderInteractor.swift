@@ -23,7 +23,7 @@ protocol CreateOrderDataStore{
 
 class CreateOrderInteractor: CreateOrderBusinessLogic, CreateOrderDataStore{
     var presenter: CreateOrderPresentationLogic!
-    var ordersWorker = OrdersWorker(orderStore: OrdersCoreDataStore())
+    var ordersWorker = OrdersWorker(orderStore: OrdersCoreDataStore.shared)
     var orderToEdit: Order?
     
     var shippingMethods = [

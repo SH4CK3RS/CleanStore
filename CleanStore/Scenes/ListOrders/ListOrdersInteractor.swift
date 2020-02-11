@@ -18,7 +18,7 @@ protocol ListOrdersDataStore{
 
 class ListOrdersInteractor: ListOrdersBusinessLogic, ListOrdersDataStore{
     var presenter: ListOrdersPresentationLogic?
-    var ordersWorker = OrdersWorker(orderStore: OrdersCoreDataStore())
+    var ordersWorker = OrdersWorker(orderStore: OrdersCoreDataStore.shared)
     var orders: [Order]?
     
     func fetchOrders(request: ListOrders.FetchOrders.Request) {

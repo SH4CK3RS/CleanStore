@@ -9,6 +9,7 @@
 import CoreData
 
 class OrdersCoreDataStore: OrdersStoreProtocol, OrderStoreUtilityProtocol{
+    static let shared: OrdersCoreDataStore = OrdersCoreDataStore()
     //MARK: - Managed Object contexts
     
     var mainManagedObjectContext: NSManagedObjectContext
