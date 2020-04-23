@@ -9,7 +9,7 @@
 import Foundation
 
 class OrdersMemStore: OrdersStoreProtocol, OrderStoreUtilityProtocol{
-    static let shared: OrderMemStore = OrderMemStore()
+    static let shared: OrdersMemStore = OrdersMemStore()
     // MARK: Data
     
     static var billingAddress = Address(street1: "1 Infinite Loop", street2: "", city: "Cupertino", state: "CA", zip: "95014")
