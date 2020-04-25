@@ -5,7 +5,6 @@
 //  Created by 손병근 on 2020/04/23.
 //  Copyright © 2020 손병근. All rights reserved.
 //
-7
 @testable import CleanStore
 import XCTest
 
