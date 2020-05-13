@@ -38,6 +38,7 @@
 		42A5EB9223E958C900527730 /* ManagedOrder+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A5EB9023E958C900527730 /* ManagedOrder+CoreDataClass.swift */; };
 		42A5EB9323E958C900527730 /* ManagedOrder+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A5EB9123E958C900527730 /* ManagedOrder+CoreDataProperties.swift */; };
 		42A5EB9623E9610000527730 /* OrdersMemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A5EB9523E9610000527730 /* OrdersMemStore.swift */; };
+		A16439BB245445AD00C740F4 /* OrdersCoreDataStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16439BA245445AD00C740F4 /* OrdersCoreDataStoreTests.swift */; };
 		A192A9242452799700F210FD /* OrdersMemStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A192A9232452799700F210FD /* OrdersMemStoreTests.swift */; };
 		A1BE454C2451951900B7467B /* CreateOrderViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BE454B2451951900B7467B /* CreateOrderViewControllerTests.swift */; };
 		A1BE454E24519B3500B7467B /* Seeds.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BE454D24519B3500B7467B /* Seeds.swift */; };
@@ -98,6 +99,7 @@
 		42A5EB9023E958C900527730 /* ManagedOrder+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ManagedOrder+CoreDataClass.swift"; sourceTree = "<group>"; };
 		42A5EB9123E958C900527730 /* ManagedOrder+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ManagedOrder+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		42A5EB9523E9610000527730 /* OrdersMemStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersMemStore.swift; sourceTree = "<group>"; };
+		A16439BA245445AD00C740F4 /* OrdersCoreDataStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersCoreDataStoreTests.swift; sourceTree = "<group>"; };
 		A192A9232452799700F210FD /* OrdersMemStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersMemStoreTests.swift; sourceTree = "<group>"; };
 		A1BE454B2451951900B7467B /* CreateOrderViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateOrderViewControllerTests.swift; sourceTree = "<group>"; };
 		A1BE454D24519B3500B7467B /* Seeds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seeds.swift; sourceTree = "<group>"; };
@@ -266,6 +268,7 @@
 			isa = PBXGroup;
 			children = (
 				A192A9232452799700F210FD /* OrdersMemStoreTests.swift */,
+				A16439BA245445AD00C740F4 /* OrdersCoreDataStoreTests.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -450,6 +453,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A16439BB245445AD00C740F4 /* OrdersCoreDataStoreTests.swift in Sources */,
 				42A5EB6323E878FA00527730 /* CleanStoreTests.swift in Sources */,
 				A1BE454C2451951900B7467B /* CreateOrderViewControllerTests.swift in Sources */,
 				A192A9242452799700F210FD /* OrdersMemStoreTests.swift in Sources */,
